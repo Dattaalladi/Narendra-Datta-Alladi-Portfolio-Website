@@ -97,24 +97,20 @@ function App() {
             <div className="flex items-center space-x-4">
   {/* View Resume */}
   <a
-    href="public/Narendra_Datta_Alladi_Resume.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hidden md:flex items-center px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors"
-  >
-    <Eye size={20} className="mr-2" />
-    View Resume
-  </a>
+  href="/Narendra_Datta_Alladi_Resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View Resume
+</a>
 
   {/* Download Resume */}
   <a
-    href="public/Narendra_Datta_Alladi_Resume.pdf"
-    download
-    className="hidden md:flex items-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-  >
-    <Download size={20} className="mr-2" />
-    Download Resume
-  </a>
+  href="/Narendra_Datta_Alladi_Resume.pdf"
+  download
+>
+  Download Resume
+</a>
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"

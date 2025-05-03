@@ -656,7 +656,7 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
   name="contact"
   method="POST"
   data-netlify="true"
-  action="/success"  // 👈 redirects to a success page after submission
+  action="/Success"  // 👈 redirects to a success page after submission
   className="space-y-6 max-w-xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
 >
   <input type="hidden" name="form-name" value="contact" />

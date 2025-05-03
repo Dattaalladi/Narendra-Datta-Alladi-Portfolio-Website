@@ -580,7 +580,7 @@ I have no doubt he'll do great things in his career, and I'm happy to recommend 
           className="flex items-center space-x-3 mt-4"
         >
           <img
-            src="\Sai Harsha .jpg"
+            src="/Sai Harsha .jpg"
             alt="Person"
             className="w-10 h-10 rounded-full border-2 border-blue-500"
           />
@@ -602,7 +602,7 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
           className="flex items-center space-x-3 mt-4"
         >
           <img
-            src="\Shiva Vinay Alladi.jpg"
+            src="/Shiva Vinay Alladi.jpg"
             alt="Person"
             className="w-10 h-10 rounded-full border-2 border-blue-500"
           />

@@ -645,7 +645,7 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
         </div>
       </div>
       {/* 👻 Hidden dummy form for Netlify to detect during build */}
-<form name="contact" netlify hidden>
+<form name="contact" data-netlify="true" hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <textarea name="message"></textarea>

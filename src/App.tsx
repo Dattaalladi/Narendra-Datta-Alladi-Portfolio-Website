@@ -644,7 +644,8 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
           {/* Add more icons as needed */}
         </div>
       </div>
-      <form name="contact" data-netlify="true" hidden>
+      {/* 👻 Hidden dummy form for Netlify to detect during build */}
+<form name="contact" netlify hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <textarea name="message"></textarea>
@@ -655,6 +656,7 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
   name="contact"
   method="POST"
   data-netlify="true"
+  action="/success"  // 👈 redirects to a success page after submission
   className="space-y-6 max-w-xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
 >
   <input type="hidden" name="form-name" value="contact" />
@@ -707,6 +709,7 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
     </button>
   </div>
 </form>
+
 
        {/* <form className="space-y-5">
         <div>

@@ -309,7 +309,7 @@ function App()
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-4 dark:text-white">Project Trainee </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-2">IBM</p>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">June 202 4- July 2024</p>
+              <p className="text-gray-500 dark:text-gray-400 mb-4">June 2024- July 2024</p>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
                 <li>Here with guidence of IBM Mentors and University Mentors we have Developed and deployed a full-stack hospital management system enabling patients to book appointments and doctors to manage schedules.</li>
                 <li>Designed a secure login and role-based access system for Admin, Doctor, and Patient dashboards using Java and MySQL.</li>

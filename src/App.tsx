@@ -8,7 +8,7 @@ import Layout from "./Layout";
 import Home from "./Home";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import Contact from "./contact";
+import Contact from "./Contact";
 function App() 
 {
   const form = useRef<HTMLFormElement>(null);

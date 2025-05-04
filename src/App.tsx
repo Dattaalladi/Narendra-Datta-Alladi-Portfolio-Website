@@ -6,7 +6,38 @@ import CertificationCard from "./CertificationCard";
 import ProjectCard from "./ProjectCard"; 
 import Layout from "./Layout";
 import Home from "./Home";
-function App() {
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Contact from "./contact";
+function App() 
+{
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          form.current?.reset();
+        },
+        (error) => {
+          alert("Failed to send message. Please try again.");
+          console.error("EmailJS error:", error);
+        }
+      );
+  }; 
+  // Closing the sendEmail function
+
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   
@@ -27,6 +58,15 @@ function App() {
           setActiveSection(section.id);
         }
       });
+      return (
+        <>
+          {/* other sections */}
+          <section id="contact-form" className="py-12 px-4">
+  <Contact />
+</section>
+          {/* other sections */}
+        </>
+      );
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -641,114 +681,52 @@ What stands out most is his work ethic—he's incredibly hardworking and dedicat
           <a href="https://www.instagram.com/datta_alladi" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
     <Instagram size={24} />
   </a>
-          {/* Add more icons as needed */}
         </div>
       </div>
-      {/* 👻 Hidden dummy form for Netlify to detect during build */}
-<form name="contact" data-netlify="true" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
 
-{/* 👇 Your actual visible contact form */}
-<form
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  action="/Success"  // 👈 redirects to a success page after submission
-  className="space-y-6 max-w-xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
->
-  <input type="hidden" name="form-name" value="contact" />
-
+      <form ref={form} onSubmit={sendEmail} className="space-y-5">
   <div>
-    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-      Name
-    </label>
+    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Name</label>
     <input
+      name="name"  // ✅ REQUIRED FOR EmailJS
       type="text"
-      id="name"
-      name="name"
-      required
-      className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+      placeholder="Your Name"
+      className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
   </div>
-
   <div>
-    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-      Email
-    </label>
+    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Email</label>
     <input
+      name="email"  // ✅ REQUIRED FOR EmailJS
       type="email"
-      id="email"
-      name="email"
-      required
-      className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+      placeholder="you@example.com"
+      className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     />
   </div>
-
   <div>
-    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-      Message
-    </label>
+    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Message</label>
     <textarea
-      id="message"
-      name="message"
+      name="message"  // ✅ REQUIRED FOR EmailJS
       rows={4}
-      required
-      className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+      placeholder="Your Message"
+      className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
     ></textarea>
   </div>
-
-  <div>
-    <button
-      type="submit"
-      className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow-sm transition"
-    >
-      Send Message
-    </button>
-  </div>
+  <button
+    type="submit"
+    className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors font-semibold"
+  >
+    Send Message
+  </button>
 </form>
 
 
-       {/* <form className="space-y-5">
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Name</label>
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Email</label>
-          <input
-            type="email"
-            placeholder="you@example.com"
-            className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Message</label>
-          <textarea
-            rows={4}
-            placeholder="Your Message"
-            className="w-full mt-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors font-semibold"
-        >
-          Send Message
-        </button>
-      </form>  */}
     </div>
   </div>
 </Section>
     </div>
   );
-  return (
+   return (
     <Layout>
       <Home />
     </Layout>
@@ -817,4 +795,5 @@ function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: stri
 //     </Layout>
 //   );
 // }
+
 export default App;

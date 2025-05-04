@@ -307,11 +307,11 @@ function App()
         <div className="max-w-7xl mx-auto">
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-xl p-8">
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold mb-4 dark:text-white">Software Developer Intern</h3>
+              <h3 className="text-2xl font-semibold mb-4 dark:text-white">Project Trainee </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-2">IBM</p>
               <p className="text-gray-500 dark:text-gray-400 mb-4">June 202 4- July 2024</p>
               <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                <li>Developed and deployed a full-stack hospital management system enabling patients to book appointments and doctors to manage schedules.</li>
+                <li>Here with guidence of IBM Mentors and University Mentors we have Developed and deployed a full-stack hospital management system enabling patients to book appointments and doctors to manage schedules.</li>
                 <li>Designed a secure login and role-based access system for Admin, Doctor, and Patient dashboards using Java and MySQL.</li>
                 <li>Built and connected the backend using Java JDBC and MySQL, handling dynamic data operations and validations.</li>
                 <li>Implemented data validation, exception handling, and ensured smooth data flow between UI and database.</li>
